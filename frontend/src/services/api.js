@@ -25,10 +25,16 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    const message =
-      error.response?.data?.message ||
-      error.message ||
-      'An unexpected error occurred';
+    let message = error.response?.data?.message;
+    if (!message) {
+      if (error.code === 'ERR_NETWORK' || !error.response) {
+        message = 'Cannot connect to backend server. Please verify the backend is running on http://localhost:5000.';
+      } else if (error.response?.status === 404) {
+        message = 'Server returned 404 Not Found. Please verify the backend is running on http://localhost:5000.';
+      } else {
+        message = error.message || 'An unexpected error occurred';
+      }
+    }
     return Promise.reject(new Error(message));
   }
 );

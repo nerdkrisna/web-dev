@@ -33,9 +33,11 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Mount Application Routes
+// Mount Application Routes (support both /api/* and root paths)
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/projects', projectRoutes);
 
 // Error Handling Middlewares
 app.use(notFound);
