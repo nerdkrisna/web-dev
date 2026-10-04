@@ -79,7 +79,7 @@ All API endpoints are hosted at `http://localhost:5000/api`.
 | **9** | `DELETE` | `/projects/:id` | **Private** | *None* (`Authorization: Bearer <token>`) | `{"success":true,"message":"Project deleted successfully"}` | `200 OK` |
 | **10** | `GET` | `/projects/stats/summary` | Public | *None* | `{"success":true,"data":{"totalProjects":4,"totalBudget":...}}` | `200 OK` |
 
-> *A complete Postman collection is ready to import at [`backend/postman_collection.json`](file:///c:/Users/Krishna/Desktop/janus%20projects/backend/postman_collection.json).*
+> *A complete Postman collection is ready to import at [`backend/postman_collection.json`](./backend/postman_collection.json).*
 
 ---
 
